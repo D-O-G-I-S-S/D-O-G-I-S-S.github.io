@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOGISS: Homepage</title>
+    <link rel="icon" type="image/png" href="img/DOGISSLogo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bodyHome">
+    <header class="header">
+        <h1>Bien-venido seas al sistema web DOGISS</h1>
+        <a href="#novedades" class="boton">Novedades</a>
+        <a href="#presentacion" class="boton">Presentación del DOGISS</a>
+        <a href="#visualizacion" class="boton">Visualización de agentes</a>
+        <a href="#contacto" class="boton">Contacto</a>
+    </header>
+
+    <main class="medio">
+        <section id="novedades">
+            <h2>Novedades</h2>
+            <div class="carrusel">
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="img/5EdithAnuncio.png" alt="Imagen 1">
+                        <img src="img/4JenniferAnuncio.png" alt="Imagen 2">
+                        <img src="img/3SarahAnuncio.png" alt="Imagen 3">
+                    </div>
+
+                    <button class="prev-btn">&#10094;</button>
+                    <button class="next-btn">&#10095;</button>
+
+                    <div class="carousel-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                </div>
+            </div>
+            
+
+            <script src="script.js"></script>
+        </section>
+
+        <section id="presentacion">
+            <h2>Presentación del DOGISS</h2>
+            <p>DEPARTMENT OF GIRLS IN SEX SERVICE: WE BRING LOVE TO THE WORLD</p>
+            <p>Somos una organización secreta que pretende tener un balance entre el amor y la lujuria.</p>
+            <p>Con planes de romance por parte de la fundadora, y aportaciones de lujuria por parte del fundador; Redactamos en estos proyectos las características y los principios fundamentales con los que que se creó este departamento.</p>
+            <p>Nuestra organización se basa en 5 principios:</p>
+            <p>1. Las mujeres que estén inscritas en el programa DOGISS deben de ser atendidas con respeto y amabilidad.</p>
+            <p>2. Debe de haber respeto y orden entre nuestras agentes.</p>
+            <p>3. Nuestras agentes pueden ser enviadas en diferentes operaciones dependiendo de sus aspectos y características.</p>
+            <p>4. Nuestras agentes les proporcionarán los cuatro pilares esenciales del DOGISS (Amor, Placer, Lujuria, Pasión) a nuestros usuarios.</p>
+            <p>5. Cualquier usuario o persona que sea sorprendido agrediendo a nuestras agentes, será castigado por nuestras ejecutoras.</p>
+            <p>Department Of Girls In Sex Service a 2020</p>
+            <p>- CSAH</p>
+            <p>- RZCK</p>
+        </section>
+
+        <section id="visualizacion">
+            <h2>Visualización de agentes</h2>
+            <p>Puedes visualizar a todas nuestras agentes en la</p>
+            <a href="bibliotecaCompleta.html" class="boton">Biblioteca completa</a>
+            <p>O bien, puedes ver nuestras agentes ordenadas de las siguientes maneras:</p>
+            <a href="anoDeSalida.html" class="boton">Año de Salida</a>
+            <a href="ordenadoArea.html" class="boton">Area de Trabajo</a>
+            <a href="ordenadoCategoria.html" class="boton">Categoría</a>
+            <a href="ordenadoFase.html" class="boton">Fase del ProjectD</a>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Si gustas comunicarte con nosotros:</p>
+            <p><a href="mailto:cm8888494@gmail.com">cm8888494@gmail.com</a></p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footerColumnas">
+            <div class="footerIzquierda">
+                <p>&copy; 2025 DOGISS. Todos los derechos reservados.</p>
+            </div>
+            <div class="footerDerecha">
+                <p>Facebook: <a href="https://www.facebook.com/share/1La8FMbSVs/">Rzck Dogiss</a></p>
+                <p>Instagram: <a href="https://www.instagram.com/d_o_g_i_s_s/">D_O_G_I_S_S</a></p>
+                <p>X: <a href="https://x.com/D_O_G_I_S_S">D_O_G_I_S_S</a></p>
+                <p>Patreon: <a href="https://patreon.com/RZCK">RZCK</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselSlide = document.querySelector('.carousel-slide');
+            const carouselImages = document.querySelectorAll('.carousel-slide img');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dotsContainer = document.querySelector('.carousel-dots');
+            const dots = document.querySelectorAll('.dot');
+
+            let counter = 0;
+            const size = carouselImages[0].clientWidth; // Ancho de una sola imagen
+
+            // Función para actualizar los puntos de navegación
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    if (index === counter) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            // Navegar a la siguiente imagen
+            nextBtn.addEventListener('click', () => {
+                if (counter >= carouselImages.length - 1) {
+                    counter = 0; // Vuelve al principio si llega al final
+                } else {
+                    counter++;
+                }
+                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                updateDots();
+            });
+
+            // Navegar a la imagen anterior
+            prevBtn.addEventListener('click', () => {
+                if (counter <= 0) {
+                    counter = carouselImages.length - 1; // Vuelve al final si está al principio
+                } else {
+                    counter--;
+                }
+                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                updateDots();
+            });
+
+            // Navegación por puntos
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const slideIndex = parseInt(e.target.dataset.slide);
+                    counter = slideIndex;
+                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                    updateDots();
+                });
+            });
+
+            // Inicializar los puntos
+            updateDots();
+
+            // Opcional: Carrusel automático
+            let autoSlide = setInterval(() => {
+                nextBtn.click(); // Simula un clic en el botón Siguiente
+            }, 5000); // Cambia de imagen cada 5 segundos
+
+            // Pausar el carrusel automático al pasar el mouse
+            carouselSlide.addEventListener('mouseenter', () => {
+                clearInterval(autoSlide);
+            });
+
+            // Reanudar el carrusel automático al quitar el mouse
+            carouselSlide.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(() => {
+                    nextBtn.click();
+                }, 5000);
+            });
+
+            // Asegurarse de que el carrusel se adapte si se redimensiona la ventana
+            window.addEventListener('resize', () => {
+                const currentSize = carouselImages[0].clientWidth;
+                carouselSlide.style.transform = 'translateX(' + (-currentSize * counter) + 'px)';
+            });
+        });
+    </script>
+</body>
+</html>
